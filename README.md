@@ -3,11 +3,11 @@ show my site seo info
 
 展示批量网站SEO信息的小工具
 
-web 目录随便丢到一个站点里。
+index.html 和 style 目录随便丢到一个站点里。
 
-code 目录随便丢到个目录下 修改配置文件
+xysite.py 和 xysite.json 随便丢到个目录下 修改配置文件
 
-比如 web 目录在 /home/wwwroot/www.test.com/xxx/
+比如 index.html 和 style 目录在 /home/wwwroot/www.test.com/xxx/ 下
 
 配置文件中要修改 jsonpath 为 /home/wwwroot/www.test.com/xxx/
 
