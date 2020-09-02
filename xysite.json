@@ -1,0 +1,5 @@
+{
+    "time":120,
+    "jsonpath":"web/",
+    "sitelist":["baidu.com","qq.com","wanren.com"]
+}
