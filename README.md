@@ -16,10 +16,15 @@ python 需要安装 requests
 运行程序：
 命令：nohup python xysite.py >/dev/null 2>&1 &
 
+
 配置文件：xysite.json
 
 {
+
     "time":120,  // 数据抓取时间
+    
     "jsonpath":"web/",  //数据保存目录 
+    
     "sitelist":["baidu.com","qq.com","wanren.com"] //网站域名列表 
+    
 }
