@@ -1,56 +1,74 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>SEO</title>
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" href="style/css/layui.css"  media="all">
-  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+<meta charset="utf-8">
+<title>SEO</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="style/css/layui.css" media="all">
+
 </head>
 <body>
 <table class="layui-table" lay-data="{ url:'site_aizhan.json', page: false, limit: 6, limits:[6]}">
-  <thead>
-    <tr>
-      <th lay-data="{field:'domain', width:200}" rowspan="2">域名</th>
-      <th lay-data="{align:'center'}" colspan="7">权重</th>
-	  <th lay-data="{align:'center'}" colspan="7">收录</th>
-	  <th lay-data="{align:'center'}" colspan="4">流量</th>
-    </tr>
-    <tr>
-	  <th lay-data="{field:'alexa', width:90}">世界排名</th>
-      <th lay-data="{field:'baidu_br', width:80}">百度PC</th>
-	  <th lay-data="{field:'baidu_mbr', width:90}">百度移动</th>
-      <th lay-data="{field:'360_qz', width:80}">360</th>
-      <th lay-data="{field:'shenma_qz', width:80}">神马</th>
-	  <th lay-data="{field:'sougou_qz', width:80}">搜狗</th>
-	  <th lay-data="{field:'google_pr', width:80}">谷歌</th>
-	  
-	  <th lay-data="{field:'baidu_c', width:80}">PC词</th>
-	  <th lay-data="{field:'baidu_mc', width:80}">移动词</th>
-	  <th lay-data="{field:'baidu_sl', width:80}">百度</th>
-	  <th lay-data="{field:'360_sl', width:80}">360</th>
-	  <th lay-data="{field:'sm_sl', width:80}">神马</th>
-	  <th lay-data="{field:'sogou_sl', width:80}">搜狗</th>
-	  <th lay-data="{field:'google_sl', width:80}">谷歌</th>
-	  
-	  <th lay-data="{field:'baidu_ip', width:90}">百度来路</th>
-	  <th lay-data="{field:'baidu_mip', width:90}">移动来路</th>
-	  <th lay-data="{field:'alexa_ip', width:80}">日均IP</th>
-	  <th lay-data="{field:'alexa_pv', width:80}">日均PV</th>
-	  
-    </tr>
-  </thead>
+<thead>
+<tr>
+<th lay-data="{field:'domain', width:150,templet: '#domainTpl'}" rowspan="2">域名</th>
+<th lay-data="{align:'center'}" colspan="6">权重</th>
+<th lay-data="{align:'center'}" colspan="7">收录</th>
+<th lay-data="{align:'center'}" colspan="6">流量</th>
+</tr>
+<tr>
+<th lay-data="{field:'baidu_br', width:85,templet: '#baidu_brTpl'}">百度PC</th>
+<th lay-data="{field:'baidu_mbr', width:85,templet: '#baidu_mbrTpl'}">百度移动</th>
+<th lay-data="{field:'qz_360', width:85,templet: '#qz_360Tpl'}">360</th>
+<th lay-data="{field:'shenma_qz', width:85,templet: '#shenma_qzTpl'}">神马</th>
+<th lay-data="{field:'sougou_qz', width:85,templet: '#sougou_qzTpl'}">搜狗</th>
+<th lay-data="{field:'google_pr', width:85,templet: '#google_prTpl'}">谷歌</th>
+<th lay-data="{field:'baidu_c', width:90}">PC词</th>
+<th lay-data="{field:'baidu_mc', width:90}">移动词</th>
+<th lay-data="{field:'baidu_sl', width:90}">百度</th>
+<th lay-data="{field:'sl_360', width:90}">360</th>
+<th lay-data="{field:'sm_sl', width:90}">神马</th>
+<th lay-data="{field:'sogou_sl', width:90}">搜狗</th>
+<th lay-data="{field:'google_sl', width:90}">谷歌</th>
+<th lay-data="{field:'alexa', width:90}">世界排名</th>
+<th lay-data="{field:'baidu_ip', width:90}">百度来路</th>
+<th lay-data="{field:'baidu_mip', width:90}">移动来路</th>
+<th lay-data="{field:'alexa_ip', width:90}">日均IP</th>
+<th lay-data="{field:'alexa_pv', width:90}">日均PV</th>
+</tr>
+</thead>
 </table>
+<script type="text/html" id="domainTpl">
+  <a href="https://{{ d.domain }}" class="layui-table-link" target="_blank">{{ d.domain }}</a>
+</script>
+<script type="text/html" id="baidu_brTpl">
+<a id="baidurank_br" target="_blank" href="https://baidurank.aizhan.com/baidu/{{ d.domain }}/" class="w3"><img src="//statics.aizhan.com/mobile/images/br/{{ d.baidu_br||"0" }}.png" width="55" height="22"></a>
+</script>
+<script type="text/html" id="baidu_mbrTpl">
+<a id="baidurank_mbr" target="_blank" href="https://baidurank.aizhan.com/mobile/{{ d.domain }}/" class=""><img src="//statics.aizhan.com/mobile/images/mbr/{{ d.baidu_mbr||"0" }}.png" width="55" height="22"></a>
+</script>
+<script type="text/html" id="qz_360Tpl">
+<a id="360_pr" target="_blank" href="https://sorank.aizhan.com/pc/{{ d.domain }}/" class="w3"><img src="//statics.aizhan.com/mobile/images/360/{{ d.qz_360||"0" }}.png"  width="55" height="22"></a>
+</script>
+<script type="text/html" id="shenma_qzTpl">
+<a id="sm_pr" target="_blank" href="https://smrank.aizhan.com/mobile/{{ d.domain }}/"><img src="//statics.aizhan.com/mobile/images/sm/{{ d.shenma_qz||"0" }}.png" width="55" height="22"></a>
+</script>
+<script type="text/html" id="sougou_qzTpl">
+<a id="sogou_pr" target="_blank" href="https://sogourank.aizhan.com/pc/{{ d.domain }}/" class="w3"><img src="//statics.aizhan.com/mobile/images/sr/{{ d.sougou_qz||"0" }}.png" width="55" height="22"></a>
+</script>
+<script type="text/html" id="google_prTpl">
+<a id="google_pr" target="_blank" href="https://pr.aizhan.com/{{ d.domain }}/" class=""><img src="//statics.aizhan.com/mobile/images/pr/{{ d.google_pr||"0" }}.png" width="55" height="22"></a>
+</script>
 <script src="style/layui.js" charset="utf-8"></script>
-<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
 <script>
 layui.use('table', function(){
   var table = layui.table;
   
 });
 </script>
-
 </body>
 </html>
